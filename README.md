@@ -12,16 +12,16 @@ and in another terminal
 
 You can base a new Github repo on this template with the Github cli:
 
-`gh repo create my-repo --private --template mitschabaude/typescript-server-template`
-
-`cd ./my-repo`
-
-`git pull origin master`
+```
+gh repo create my-repo --private --template mitschabaude/typescript-server-template
+cd ./my-repo
+git pull origin master
+```
 
 On the other hand, you typically want to start developing from a template without publishing to Github right away. To do so, simply clone the repo and remove the .git folder.
 
-`git clone git@github.com:mitschabaude/typescript-server-template.git my-repo`
-
-`cd ./my-repo`
-
-`rm -rf .git`
+```
+git clone git@github.com:mitschabaude/typescript-server-template.git my-repo
+cd ./my-repo
+rm -rf .git
+```

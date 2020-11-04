@@ -1,6 +1,7 @@
 {
   "name": "typescript-server-template",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "watch": "tsc -w",
     "start": "nodemon ./dist/server.js",

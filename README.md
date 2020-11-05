@@ -6,6 +6,14 @@ In development, watch TS src and re-run compiled JS server simultaneously with
 
 and in another terminal
 
+`yarn dev`
+
+In production, build with
+
+`yarn build`
+
+Run the server without watching changes with
+
 `yarn start`
 
 ## Using the template

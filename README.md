@@ -30,7 +30,7 @@ You can base a new Github repo on this template with the Github cli:
 
 ```sh
 gh repo create my-repo --private --template mitschabaude/typescript-server-template
-cd ./my-repo
+cd my-repo
 git pull origin master
 yarn
 ```
@@ -39,7 +39,7 @@ On the other hand, more often you want to start developing without publishing to
 
 ```sh
 git clone git@github.com:mitschabaude/typescript-server-template.git my-repo
-cd ./my-repo
+cd my-repo
 rm -rf .git
 yarn
 ```

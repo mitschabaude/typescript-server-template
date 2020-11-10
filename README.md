@@ -16,6 +16,14 @@ Run the server without watching changes with
 
 `yarn start`
 
+The template comes with a hello-world HTTP + HTTPS server that auto-generates a self-signed TLS certificate to start you off. You can test that it works with
+
+```sh
+curl -k https://localhost
+```
+
+In production, get a real certificate and remove the HTTP server.
+
 ## Using the template
 
 You can base a new Github repo on this template with the Github cli:
@@ -27,7 +35,7 @@ git pull origin master
 yarn
 ```
 
-On the other hand, you typically want to start developing without publishing to Github. To do so, simply clone the repo and remove the .git folder.
+On the other hand, more often you want to start developing without publishing to Github. To do so, simply clone the repo and remove the .git folder.
 
 ```sh
 git clone git@github.com:mitschabaude/typescript-server-template.git my-repo

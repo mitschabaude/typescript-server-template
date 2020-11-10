@@ -3,10 +3,10 @@ import https from "https";
 import selfsign from "./selfsign";
 let { key, cert } = selfsign();
 
-http.createServer(serve).listen(80, "127.0.0.1", () => {
+http.createServer(serve).listen(80, "0.0.0.0", () => {
   console.log(`Server running at http://localhost`);
 });
-https.createServer({ key, cert }, serve).listen(443, "127.0.0.1", () => {
+https.createServer({ key, cert }, serve).listen(443, "0.0.0.0", () => {
   console.log(`Server running at https://localhost`);
 });
 

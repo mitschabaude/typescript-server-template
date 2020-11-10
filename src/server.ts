@@ -1,7 +1,7 @@
 import http from "http";
 import https from "https";
-import selfsigned from "./selfsigned";
-let { key, cert } = selfsigned();
+import selfsign from "./selfsign";
+let { key, cert } = selfsign();
 
 http.createServer(serve).listen(80, "127.0.0.1", () => {
   console.log(`Server running at http://localhost`);

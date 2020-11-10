@@ -27,7 +27,7 @@ git pull origin master
 yarn
 ```
 
-On the other hand, you typically want to start developing without publishing to Github right away. To do so, simply clone the repo and remove the .git folder.
+On the other hand, you typically want to start developing without publishing to Github. To do so, simply clone the repo and remove the .git folder.
 
 ```sh
 git clone git@github.com:mitschabaude/typescript-server-template.git my-repo

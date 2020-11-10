@@ -11,7 +11,7 @@ https.createServer({ key, cert }, serve).listen(443, "0.0.0.0", () => {
 });
 
 async function serve(req: http.IncomingMessage, res: http.ServerResponse) {
-  console.log("request ", req.url);
+  console.log("request ", req.headers.host, req.url);
 
   switch (req.url) {
     case "/":

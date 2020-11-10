@@ -1,12 +1,19 @@
 import http from "http";
 import https from "https";
-import selfsign from "./selfsign";
-let { key, cert } = selfsign();
+import { letsencrypt, selfsigned, Credentials } from "./tls";
+
+const domain = "dev.plusepsilon.com";
+let credentials: Credentials;
+try {
+  credentials = letsencrypt(domain);
+} catch (err) {
+  credentials = selfsigned(domain);
+}
 
 http.createServer(serve).listen(80, "0.0.0.0", () => {
   console.log(`Server running at http://localhost`);
 });
-https.createServer({ key, cert }, serve).listen(443, "0.0.0.0", () => {
+https.createServer(credentials, serve).listen(443, "0.0.0.0", () => {
   console.log(`Server running at https://localhost`);
 });
 

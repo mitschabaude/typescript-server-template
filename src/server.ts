@@ -2,7 +2,7 @@ import http from "http";
 import https from "https";
 import { getCredentials } from "./tls";
 
-const domain = "yourdomain.com";
+const domain = "example.com";
 const credentials = getCredentials(domain);
 
 http.createServer(serve).listen(80, "0.0.0.0", () => {

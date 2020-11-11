@@ -16,7 +16,7 @@ Run the server without watching changes with
 
 `yarn start`
 
-The template comes with a hello-world HTTP + HTTPS server plus some logic for TLS certificates to start you off. It tries to find a Let's Encrypt certificate in `/etc/letsencrypt/live/yourdomain.com` (change the domain!) and falls back to an auto-generated self-signed certificate. You can test that it works with
+The template comes with a hello-world HTTP + HTTPS server plus some logic for TLS certificates to start you off. It tries to find a Let's Encrypt certificate in `/etc/letsencrypt/live/example.com` (change the domain!) and falls back to an auto-generated self-signed certificate. You can test that it works with
 
 ```sh
 curl -k https://localhost

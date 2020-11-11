@@ -1,13 +1,25 @@
 import fs from "fs";
 
-export type Credentials = {
+// tries to get letsencrypt, falls back to selfsigned
+export function getCredentials(
+  domain: string
+): {
   key: string;
   cert: string;
   ca?: string;
-};
+} {
+  try {
+    return getLetsencrypt(domain);
+  } catch (err) {
+    console.log(
+      "no letsencrypt credentials found, falling back to self-signed."
+    );
+    return getSelfsigned(domain);
+  }
+}
 
-// pull tls credentials from default letsencrypt folder
-export function letsencrypt(domain: string) {
+// read tls credentials from default letsencrypt folder
+export function getLetsencrypt(domain: string) {
   const folder = `/etc/letsencrypt/live/${domain}`;
   let key = fs.readFileSync(`${folder}/privkey.pem`, "utf8");
   let cert = fs.readFileSync(`${folder}/cert.pem`, "utf8");
@@ -16,11 +28,11 @@ export function letsencrypt(domain: string) {
 }
 
 // alternatively, self-sign credentials
-const folder = "./dist/.cert";
-const keyFile = `${folder}/key.pem`;
-const certFile = `${folder}/cert.pem`;
+export function getSelfsigned(domain: string) {
+  const folder = "./dist/.cert";
+  const keyFile = `${folder}/key.pem`;
+  const certFile = `${folder}/cert.pem`;
 
-export function selfsigned(domain: string) {
   if (fs.existsSync(keyFile) && fs.existsSync(certFile)) {
     let key = fs.readFileSync(keyFile, "utf8");
     let cert = fs.readFileSync(certFile, "utf8");
